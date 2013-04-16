@@ -29,6 +29,9 @@
         
         //Tell our manager to start looking for its location immediately
         [locationManager startUpdatingLocation];
+        
+        //Tell our manager to start looking for its heading immediately
+        [locationManager startUpdatingHeading];
     }
     
     return self;
@@ -45,6 +48,11 @@
         didFailWithError:(NSError *)error
 {
     NSLog(@"Could not find locationn %@",error);
+}
+-(void)locationManager:(CLLocationManager *)manager
+        didUpdateHeading:(CLHeading *)newHeading
+{
+    NSLog(@"%@",newHeading);
 }
 -(void)dealloc
 {
